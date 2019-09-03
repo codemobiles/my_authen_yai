@@ -18,6 +18,14 @@ class SuccessActivity : AppCompatActivity() {
         viewPager.adapter = sectionsPagerAdapter
         val tabs: TabLayout = findViewById(R.id.tabs)
         tabs.setupWithViewPager(viewPager)
+
+        // custom tabs
+        for (i in 0 until tabs.tabCount) {
+            val tab: TabLayout.Tab? = tabs.getTabAt(i)
+            tab!!.customView = sectionsPagerAdapter.getTabView(i)
+        }
+
+
         val fab: FloatingActionButton = findViewById(R.id.fab)
 
         fab.setOnClickListener { view ->

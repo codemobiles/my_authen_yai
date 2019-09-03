@@ -52,22 +52,96 @@ package com.codemobiles.myauthen
 //}
 
 
+//fun main() {
+//
+//    // any
+//    val array1 = arrayOf(1234, "1234", true, 1.46)
+//    var array2 = arrayOf<Int>(1234, 555, 666, 6666)
+//
+//    array1[0] = 5555
+//
+//
+//    val array3 = listOf(123, "12412", true, 1.56)
+//    val array4 = listOf<Int>(123, 444, 5555, 756)
+//
+//   // array3[0] = 5555
+//
+//    val list1 = ArrayList<Int>()
+//    list1.add(5555)
+//    list1.add(5555)
+//    list1.remove(5555)
+//}
+
+
 fun main() {
+    val obj1 = Person1("tanakorn", "ngam");
+    obj1.firstName = "tanawut"
+    obj1.lastName = "ngam..."
+    obj1.display()
 
-    // any
-    val array1 = arrayOf(1234, "1234", true, 1.46)
-    var array2 = arrayOf<Int>(1234, 555, 666, 6666)
+    val obj2 = Person2()
+    obj2.firstName = "tanakorn"
 
-    array1[0] = 5555
+    val obj3 = Person2("tanakorn")
 
+    print(obj2.equals(obj3))
+    print(obj2.toString())
 
-    val array3 = listOf(123, "12412", true, 1.56)
-    val array4 = listOf<Int>(123, 444, 5555, 756)
+    // data class
+    var obj4 = Person3("A", "B")
+    var obj5 = Person3("A", "B")
 
-   // array3[0] = 5555
-
-    val list1 = ArrayList<Int>()
-    list1.add(5555)
-    list1.add(5555)
-    list1.remove(5555)
+    print("data class : " + obj4.equals(obj5))
+    print(obj4.toString())
 }
+
+// primary class
+class Person1(var firstName: String, var lastName: String){
+
+    init {
+        //todo 1
+    }
+
+    init {
+        //todo 2
+    }
+
+    fun display(){
+        print(firstName + lastName)
+    }
+}
+
+// secondary class
+class Person2{
+    var firstName: String = ""
+    var lastName: String = ""
+
+    init {
+        //todo 1
+    }
+
+    init {
+        //todo 2
+    }
+
+
+    constructor(){
+        // default constructor
+    }
+
+    constructor(firstName: String){
+
+    }
+
+    constructor(firstName: String, lastName: String){
+
+    }
+}
+
+data class Person3(var firstName: String, var lastName: String)
+
+
+
+
+
+
