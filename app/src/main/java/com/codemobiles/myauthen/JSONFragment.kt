@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_json.view.*
 
@@ -20,7 +21,12 @@ class JSONFragment : Fragment() {
         // Inflate the layout for this fragment
         val _view = inflater.inflate(R.layout.fragment_json, container, false)
 
+        mAdapter = CustomAdapter(context!!)
+
         _view.recyclerView.adapter = mAdapter
+        // important
+        _view.recyclerView.layoutManager = LinearLayoutManager(context)
+
         return _view
     }
 
