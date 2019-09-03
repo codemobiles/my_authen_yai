@@ -12,6 +12,7 @@ const val DATABASE_NAME = "cm-db"
 // Intent key
 const val USER_BEAN = "USER_BEAN"
 
+
 // Shared Preferences
 const val PREFS_KEY_USERNAME = "username"
 const val PREFS_KEY_PASSWORD = "password"
