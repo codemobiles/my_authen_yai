@@ -1,20 +1,28 @@
 package com.codemobiles.myauthen
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.codemobiles.myauthen.models.User
-import com.codemobiles.myauthen.util.USER_BEAN
+import androidx.viewpager.widget.ViewPager
+import com.codemobiles.myauthen.ui.main.SectionsPagerAdapter
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.tabs.TabLayout
 
 class SuccessActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_success)
+        setContentView(R.layout.activity_sucess)
+        val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager)
+        val viewPager: ViewPager = findViewById(R.id.view_pager)
+        viewPager.adapter = sectionsPagerAdapter
+        val tabs: TabLayout = findViewById(R.id.tabs)
+        tabs.setupWithViewPager(viewPager)
+        val fab: FloatingActionButton = findViewById(R.id.fab)
 
-        val user = intent.getParcelableExtra<User>(USER_BEAN)
-        val username = user.username
-        val password = user.password
-        Toast.makeText(applicationContext, username + password, Toast.LENGTH_LONG).show()
+        fab.setOnClickListener { view ->
+            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show()
+        }
     }
 }

@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SuccessActivity"></activity>
+        <activity
+            android:name=".SuccessActivity"
+            android:label="@string/title_activity_sucess"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".MainActivity"
             android:theme="@style/NoActionBar">
