@@ -24,8 +24,14 @@ class JSONFragment : Fragment() {
         mAdapter = CustomAdapter(context!!)
 
         _view.recyclerView.adapter = mAdapter
+
+
         // important
         _view.recyclerView.layoutManager = LinearLayoutManager(context)
+        //_view.recyclerView.layoutManager = LinearLayoutManager( context, RecyclerView.HORIZONTAL,false)
+      //  _view.recyclerView.layoutManager = LinearLayoutManager( context, LinearLayoutManager.HORIZONTAL,false)
+//          _view.recyclerView.layoutManager = GridLayoutManager(context, 2)
+
 
         return _view
     }
