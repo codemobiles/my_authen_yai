@@ -1,6 +1,7 @@
 package com.codemobiles.myauthen.ui.main
 
 import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -10,6 +11,8 @@ import com.codemobiles.myauthen.ChartFragment
 import com.codemobiles.myauthen.HomeWorkFragment
 import com.codemobiles.myauthen.JSONFragment
 import com.codemobiles.myauthen.R
+import com.codemobiles.myauthen.models.User
+import com.codemobiles.myauthen.util.USER_BEAN
 import kotlinx.android.synthetic.main.custom_tab.view.*
 
 private val TAB_TITLES = arrayOf<String>(
@@ -28,10 +31,19 @@ private val TAB_ICONS = arrayOf<Int>(
 class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
     FragmentPagerAdapter(fm) {
 
+    private lateinit var mJsonFragment: JSONFragment
+
     override fun getItem(position: Int): Fragment {
         return when (position) {
             0 -> {
-                JSONFragment()
+
+                val bundle = Bundle()
+                bundle.putParcelable(USER_BEAN, User("tanakorn", "yai"))
+
+                mJsonFragment = JSONFragment()
+                mJsonFragment.arguments = bundle
+
+                mJsonFragment
             }
             1 -> {
                 ChartFragment()

@@ -3,7 +3,9 @@ package com.codemobiles.myauthen
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
+import com.codemobiles.myauthen.models.User
 import com.codemobiles.myauthen.ui.main.SectionsPagerAdapter
+import com.codemobiles.myauthen.util.USER_BEAN
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
@@ -18,6 +20,10 @@ class SuccessActivity : AppCompatActivity() {
         viewPager.adapter = sectionsPagerAdapter
         val tabs: TabLayout = findViewById(R.id.tabs)
         tabs.setupWithViewPager(viewPager)
+
+
+        val user = intent.getParcelableExtra<User>(USER_BEAN)
+        // user.username
 
         // custom tabs
         for (i in 0 until tabs.tabCount) {
