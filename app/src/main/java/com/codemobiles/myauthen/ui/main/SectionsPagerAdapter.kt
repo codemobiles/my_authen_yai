@@ -7,17 +7,20 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.codemobiles.myauthen.ChartFragment
+import com.codemobiles.myauthen.HomeWorkFragment
 import com.codemobiles.myauthen.JSONFragment
 import com.codemobiles.myauthen.R
 import kotlinx.android.synthetic.main.custom_tab.view.*
 
 private val TAB_TITLES = arrayOf<String>(
     "JSON",
-    "Chart"
+    "Chart",
+    "Homework"
 )
 
 private val TAB_ICONS = arrayOf<Int>(
     R.drawable.ic_tab_json,
+    R.drawable.ic_tab_chart,
     R.drawable.ic_tab_chart
 )
 
@@ -30,8 +33,11 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
             0 -> {
                 JSONFragment()
             }
-            else -> {
+            1 -> {
                 ChartFragment()
+            }
+            else -> {
+                HomeWorkFragment()
             }
         }
     }

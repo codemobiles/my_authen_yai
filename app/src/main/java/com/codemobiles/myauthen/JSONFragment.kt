@@ -31,7 +31,6 @@ class JSONFragment : Fragment() {
 
       //  _view.recyclerView.layoutManager = LinearLayoutManager( context, LinearLayoutManager.HORIZONTAL,false)
 
-
 //          _view.recyclerView.layoutManager = GridLayoutManager(context, 2)
 
 
@@ -62,5 +61,4 @@ class JSONFragment : Fragment() {
     class CustomViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     }
-
 }
