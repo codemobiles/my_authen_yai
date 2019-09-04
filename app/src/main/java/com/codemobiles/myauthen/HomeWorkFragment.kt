@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.codemobiles.myauthen.models.TestJson
 import com.codemobiles.myauthen.network.ApiInterface
@@ -31,7 +30,7 @@ class HomeWorkFragment : Fragment() {
         _view.recyclerView.adapter = mAdapter
 
         //important
-        _view.recyclerView.layoutManager = GridLayoutManager(context, 2)
+        //_view.recyclerView.layoutManager = GridLayoutManager(context, 2)
 
 
         feedData()

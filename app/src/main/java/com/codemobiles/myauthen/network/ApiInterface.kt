@@ -18,15 +18,12 @@ interface ApiInterface {
     ): Call<YoutubeResponse>
 
 
-
-
     @GET("/posts")
     fun getTestJson(): Call<List<TestJson>>
 
-
     companion object Factory {
-        //private val BASE_URL = "http://codemobiles.com"
-        private val BASE_URL = "https://jsonplaceholder.typicode.com/"
+        private val BASE_URL = "http://codemobiles.com"
+        //private val BASE_URL = "https://jsonplaceholder.typicode.com/"
 
         private var instance: Retrofit? = null
 
