@@ -2,13 +2,20 @@ package com.codemobiles.myauthen
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.fragment_json.view.*
+import com.codemobiles.myauthen.models.YoutubeResponse
+import com.codemobiles.myauthen.network.ApiInterface
+import kotlinx.android.synthetic.main.fragment_homework.view.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
 
 class JSONFragment : Fragment() {
 
@@ -23,18 +30,35 @@ class JSONFragment : Fragment() {
 
         mAdapter = CustomAdapter(context!!)
 
-        _view.recyclerView.adapter = mAdapter
-        // important
-        _view.recyclerView.layoutManager = LinearLayoutManager(context)
+        _view.recyclerView.let {
+            it.adapter = mAdapter
+            it.layoutManager = LinearLayoutManager(context)
+        }
 
-        //_view.recyclerView.layoutManager = LinearLayoutManager( context, RecyclerView.HORIZONTAL,false)
-
-      //  _view.recyclerView.layoutManager = LinearLayoutManager( context, LinearLayoutManager.HORIZONTAL,false)
-
-//          _view.recyclerView.layoutManager = GridLayoutManager(context, 2)
-
+        feedData()
 
         return _view
+    }
+
+    private fun feedData() {
+        ApiInterface.getInstance().getYoutube("admin", "password", "foods").let { call ->
+
+            Log.d("network", call.request().url().toString())
+
+            call.enqueue(object : Callback<YoutubeResponse> {
+                override fun onFailure(call: Call<YoutubeResponse>, t: Throwable) {
+                    Log.d("network", t.message.toString())
+                }
+
+                override fun onResponse(
+                    call: Call<YoutubeResponse>,
+                    response: Response<YoutubeResponse>
+                ) {
+                    Log.d("network", response.body().toString())
+                }
+            })
+        }
+
     }
 
 
