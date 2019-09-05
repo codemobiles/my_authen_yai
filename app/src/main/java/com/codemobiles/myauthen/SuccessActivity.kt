@@ -15,14 +15,17 @@ class SuccessActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sucess)
-        val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager)
+
+        val user = intent.getParcelableExtra<User>(USER_BEAN)
+
+        val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager, user)
         val viewPager: ViewPager = findViewById(R.id.view_pager)
         viewPager.adapter = sectionsPagerAdapter
         val tabs: TabLayout = findViewById(R.id.tabs)
         tabs.setupWithViewPager(viewPager)
 
 
-        val user = intent.getParcelableExtra<User>(USER_BEAN)
+
         // user.username
 
         // custom tabs

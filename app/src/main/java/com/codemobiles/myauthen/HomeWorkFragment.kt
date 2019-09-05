@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
-import com.codemobiles.myauthen.models.TestJson
-import com.codemobiles.myauthen.network.ApiInterface
+import com.codemobiles.myauthen.models.TestJSON
+import com.codemobiles.myauthen.network.TestApiInterface
 import kotlinx.android.synthetic.main.fragment_homework.view.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -32,27 +32,26 @@ class HomeWorkFragment : Fragment() {
         //important
         //_view.recyclerView.layoutManager = GridLayoutManager(context, 2)
 
-
         feedData()
 
         return _view
     }
 
     private fun feedData() {
-        ApiInterface.getInstance().getTestJson().let { call ->
+        TestApiInterface.getInstance().testJson().let { call ->
 
             Log.d("network", call.request().url().toString())
 
-            call.enqueue(object : Callback<List<TestJson>> {
-                override fun onFailure(call: Call<List<TestJson>>, t: Throwable) {
-                        Log.e("network", t.message.toString() );
+            call.enqueue(object : Callback<List<TestJSON>> {
+                override fun onFailure(call: Call<List<TestJSON>>, t: Throwable) {
+                    Log.e("cm_network", t.message.toString())
                 }
 
                 override fun onResponse(
-                    call: Call<List<TestJson>>,
-                    response: Response<List<TestJson>>
+                    call: Call<List<TestJSON>>,
+                    response: Response<List<TestJSON>>
                 ) {
-                    Log.d("network", response.body().toString());
+                    Log.d("cm_network", response.body().toString())
                 }
             })
         }

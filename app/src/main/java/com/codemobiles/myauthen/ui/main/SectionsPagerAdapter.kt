@@ -28,7 +28,11 @@ private val TAB_ICONS = arrayOf<Int>(
 )
 
 
-class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
+class SectionsPagerAdapter(
+    private val context: Context,
+    fm: FragmentManager,
+    private var user: User
+) :
     FragmentPagerAdapter(fm) {
 
     private lateinit var mJsonFragment: JSONFragment
@@ -36,9 +40,8 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
     override fun getItem(position: Int): Fragment {
         return when (position) {
             0 -> {
-
                 val bundle = Bundle()
-                bundle.putParcelable(USER_BEAN, User("tanakorn", "yai"))
+                bundle.putParcelable(USER_BEAN, user)
 
                 mJsonFragment = JSONFragment()
                 mJsonFragment.arguments = bundle

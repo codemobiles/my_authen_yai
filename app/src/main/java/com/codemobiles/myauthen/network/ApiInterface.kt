@@ -1,6 +1,5 @@
 package com.codemobiles.myauthen.network
 
-import com.codemobiles.myauthen.models.TestJson
 import com.codemobiles.myauthen.models.YoutubeResponse
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -17,9 +16,6 @@ interface ApiInterface {
         @Query("type") type: String
     ): Call<YoutubeResponse>
 
-
-    @GET("/posts")
-    fun getTestJson(): Call<List<TestJson>>
 
     companion object Factory {
         private val BASE_URL = "http://codemobiles.com"

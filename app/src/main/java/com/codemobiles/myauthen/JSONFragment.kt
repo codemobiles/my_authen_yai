@@ -39,6 +39,7 @@ class JSONFragment : Fragment() {
     ): View? {
 
         val user = arguments!!.getParcelable(USER_BEAN) as User
+        Log.d("aaaaa", user.username)
 
 
         // Inflate the layout for this fragment
