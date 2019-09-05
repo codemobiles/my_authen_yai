@@ -29,3 +29,4 @@ class User(var username: String, var password: String) : Parcelable {
         }
     }
 }
+

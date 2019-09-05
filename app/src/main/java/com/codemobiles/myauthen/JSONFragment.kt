@@ -30,6 +30,7 @@ import retrofit2.Response
 
 class JSONFragment : Fragment() {
 
+    private lateinit var mUser: User
     private var mDataArray: ArrayList<Youtube>? = null
     private lateinit var mAdapter: CustomAdapter
 
@@ -38,9 +39,7 @@ class JSONFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val user = arguments!!.getParcelable(USER_BEAN) as User
-        Log.d("aaaaa", user.username)
-
+        mUser = arguments!!.getParcelable(USER_BEAN) as User
 
         // Inflate the layout for this fragment
         val _view = inflater.inflate(R.layout.fragment_json, container, false)
@@ -65,7 +64,8 @@ class JSONFragment : Fragment() {
     }
 
     private fun feedData() {
-        ApiInterface.getInstance().getYoutube("admin", "password", "superhero").let { call ->
+
+        ApiInterface.getInstance().getYoutube(mUser.username, mUser.password, "superhero").let { call ->
 
             Log.d("network", call.request().url().toString())
 

@@ -31,7 +31,7 @@ private val TAB_ICONS = arrayOf<Int>(
 class SectionsPagerAdapter(
     private val context: Context,
     fm: FragmentManager,
-    private var user: User
+    val user: User
 ) :
     FragmentPagerAdapter(fm) {
 

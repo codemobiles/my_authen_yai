@@ -29,3 +29,5 @@ data class Company(
     val catchPhrase: String = "",
     val name: String = ""
 )
+
+
